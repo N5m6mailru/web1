@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <title>Форма</title></title>
+</head>
+<body>
+  <form action="#" method="">
+    <h4><strong>Оставить заявку</strong></h4>
+    <div>
+      <input type="text" name="firstname" value="Иван">
+    </div>
+    <div>
+      <input type="e-mail" name="e-mail" placeholder="Введите e-mail">
+    </div>
+    <div>
+      <label>
+        <input type="radio" name="type" value="static">
+        <SPAN>Статический</SPAN>
+      </label>
+      <label>
+        <input type="radio" name="type" value="adaptive" checked>
+        <SPAN>Адаптивный</SPAN>
+      </label>
+    </div>
+    <div>
+      <div>
+        <label>
+           <input type="checkbox" name="help">
+           <span>Поддержка</span>
+        </label>
+      </div>
+      <div>
+        <label>
+           <input type="checkbox" name="design">
+           <span>Дизайн</span>
+        </label>
+      </div>
+      <div>
+        <label>
+           <input type="checkbox" name="seo">
+           <span>SEO</span>
+        </label>
+      </div>
+    </div>
+    <div>
+      <p>Загрузить ваш макет</p>
+      <input type="file" name="maket">
+      <div>
+        <textarea name="about" cols="30" rows="7" placeholder="Ваш комментарий"></textarea>
+      </div>
+      <input type="submit">
+      <input type="reset" value="Очистить">
+ 
+        
+
+    </div>
+  </form>
+  <h1>Регистрационная анкета</h1>
+        <form action="" method="post">
+            Имя:<input type=text autofocus id="name" name="name" required>
+            <br clear="all">
+            Почта: <input type="email" id="email" name="email" required placeholder="test@mail.ru">
+            <br clear="all">
+            Сайт: <input type="url" id="website" name="website" placeholder="https://mail.ru">
+            <br clear="all">
+            <abbr title="Цифра и три буквы латинского алфавита">Идентификатор:</abbr>
+                <input type="text" id="ID" required name="ID" pattern="[0-9][A-Z]{3}" placeholder="1ABC">
+            <br clear="all">
+            Страна: <input list="Countries" placeholder="Country Name">
+            <datalist id="Countries">
+                <option value="Россия"></option>  
+                <option value="Казахстан"></option>
+                <option value="Украина"></option>
+                <option value="Белоруссия"></option>
+                <option value="Латвия"></option>
+            </datalist> 
+            <br clear="all">
+            <abbr title="Xbckj jn 18 lj 75">Возраст:</abbr>
+                <input type="number" id="Age"  name="Age" required min=18 max=75>
+            <br clear="all">
+            Любимый цвет:<input type="color"  id="Color" name="Color">
+            <br clear="all">
+            Дата рождения:<input type="date" id="Date" name="Date">
+            <br clear="all">
+            Неделя:<input type="week"  id="Week" name="Week">
+            <br clear="all">
+            Месяц:<input type="month"  id="Month" name="Month">
+            <br clear="all">
+            Время:<input type="time" id="Time" name="Time">
+            <br clear="all">
+            Дата и время:<input type="datetime-local"  id="DateTimee" name="DateTime">
+            
+            
+        </form>
+</body>
+</html>

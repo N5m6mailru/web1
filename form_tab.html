@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Birds</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1{
+                font-size:1.5em
+            }
+            input,button{
+                min-width:72px;
+                min-height:36px;
+                border:1px solid grey;
+            }
+            label,input,button{
+                display:block;
+            }
+            input{
+                margin-bottom:1em;
+            }
+            table,th,td{
+                border:1px solid black;
+                text-align:center;
+                width:1000px;
+                height:36px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        Квадрат:<input type="number"  id="state">
+        Вид трясогузок:<input type="text"  id="birdName">
+        Количество:<input type="number"  id="population">
+        <input type="button" value="Сохранить данные" onclick=clickButton()>
+        <br><br>
+        <table id="birdTable">
+            <tr>
+                <th>Квадрат</th>
+                <th>Вид трясогузок</th>
+                <th>Количесво</th>
+            </tr>
+        </table>
+        <script>
+            let arrayBird=[{"state":1,"birdName":"ghj","population":89}];
+            function clickButton()
+            {
+                let bird={};
+                bird.state=document.getElementById("state").value;
+                bird.state=parseInt(bird.state);
+                bird.birdName=document.getElementById("birdName").value;
+                bird.population=document.getElementById("population").value;
+                bird.population=parseInt(bird.population);
+                arrayBird.push(bird);
+                showBirds();
+                
+            }
+            function showBirds()
+            {
+                arrayBird.sort(compareBirds);
+                arrayBird.reverse();
+                document.getElementById("birdTable").innerHTML="<tr>"+
+                        "<th>Квадрат</th>"+
+                        "<th>Название</th>"+
+                        "<th>Количесво</th>"+
+                        "</tr>";
+                for (i=0;i<arrayBird.length;i++)
+                {
+                    let str="";
+                    str+='<tr>';
+                    str+="<td>"+arrayBird[i].state+"</td>";
+                    str+='<td>'+arrayBird[i].birdName+'</td>';
+                    str+="<td>"+arrayBird[i].population+"</td>";
+                    str+="</tr>";
+                    document.getElementById("birdTable").innerHTML+=str;
+                }
+            }
+            
+            function compareBirds(birdA,birdB)
+        {
+            return birdA.population-birdB.population;
+        }
+        </script>
+        
+    </body>
+</html>
