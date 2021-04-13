@@ -12,7 +12,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             h1{
-                font-size:1.5em
+                font-size:1.5em;
+                color:blue;
             }
             input,button{
                 min-width:72px;
@@ -35,47 +36,86 @@ and open the template in the editor.
         
     </head>
     <body>
-        Название:<input type="text"  id="townName" value="uyu">
-        <br>
-        Страна:<input type="text"  id="state" value="hj">
-        <br>
-        Население:<input type="number"  id="population" value=34>
-        <br>
-        <input type="button" value="Сохранить город?" onclick=clickButton()>
-         <table id="townTable"></table>
+        <h1>Обобщенные сведения по учету трясогузок</h1>
+
+        <table id="birdTable">
+                <thead>
+                    <tr>
+                        <th align="center" rowspan="2">Квадрат</th>
+                        <th align="center" rowspan="2">Bид трясогузок</th>
+                        <th align="center">2020 год</th>     
+                        <th align="center">2021 год</th>
+                        <th align="center">Изменения 2021год/2020год</th> 
+                    </tr>
+                    <tr>
+                        <th align="center">Количество особей</th>
+                        <th align="center">Количество особей</th>
+                        <th align="center">Количествo особей</th>
+                    </tr>
+                </thead>
+                <tbody id="body_tableBirds"></tbody>
+            
+        </table>
         <script>
-            let arrayTown=[{"townName":"ghj","state":"hjk","population":89}, {"townName":"ghj","state":"hjk","population":88}];
-            function clickButton()
-            {
-                let town={};
-                town.townName=document.getElementById("townName").value;
-                town.state=document.getElementById("state").value;
-                town.population=document.getElementById("population").value;
-                town.population=parseInt(town.population);
-                arrayTown.push(town);
-                alert(arrayTown);
-                showTowns();
+            "use strict";
+            let arrayBirds_2020=[{"state":1,"birdName":"Белая трясогузка","population":89}, 
+            {"state":1,"birdName":"Желтая трясогузка","population":10}, 
+            {"state":1,"birdName":"Желтоголовая трясогузка","population":5}, 
+            {"state":2,"birdName":"Белая трясогузка","population":76}, 
+            {"state":2,"birdName":"Желтая трясогузка","population":8}, 
+            {"state":2,"birdName":"Желтоголовая трясогузка","population":9}, 
+            {"state":3,"birdName":"Белая трясогузка","population":132}, 
+            {"state":3,"birdName":"Желтая трясогузка","population":12}, 
+            {"state":3,"birdName":"Желтоголовая трясогузка","population":6},];
+            let arrayBirds_2021=[{"state":1,"nameBird":"Белая трясогузка","population":99}, 
+            {"state":1,"birdName":"Желтая трясогузка","population":9}, 
+            {"state":1,"birdName":"Желтоголовая трясогузка","population":4}, 
+            {"state":2,"birdName":"Белая трясогузка","population":96}, 
+            {"state":2,"birdName":"Желтая трясогузка","population":7}, 
+            {"state":2,"birdName":"Желтоголовая трясогузка","population":5}, 
+            {"state":3,"birdName":"Белая трясогузка","population":145}, 
+            {"state":3,"birdName":"Желтая трясогузка","population":6}, 
+            {"state":3,"birdName":"Желтоголовая трясогузка","population":2},];
+            
+            
+            
+            showBirds();
                 
-            }
-            function showTowns()
-            {
-                arrayTown.sort(compareTowns);
+             function showBirds() {
+/*arrayTown.sort(compareTowns);
                 arrayTown.reverse();
                 document.getElementById("townTable").innerHTML="<tr>"+
                         "<th>Название</th>"+
                         "<th>Страна</th>"+
                         "<th>Население</th>"+
-                        "</tr>";
-                for (i=0;i<arrayTown.length;i++)
-                {
+                        "</tr>"; */
+                for ( let i = 0; i < arrayBirds_2020.length; i++) {
+                    let bird_change = String(arrayBirds_2021[i].population - 
+                        arrayBirds_2020[i].population);
+            
+                    //if (bird_change < 0) td[i][5].style.text-color("red");
+
                     let str="";
                     str+='<tr>';
-                    str+='<td>'+arrayTown[i].townName+'</td>';
-                    str+="<td>"+arrayTown[i].state+"</td>";
-                    str+="<td>"+arrayTown[i].population+"</td>";
+                    str+='<td>'+arrayBirds_2020[i].state+'</td>';
+                    str+="<td>"+arrayBirds_2020[i].birdName+"</td>";
+                    str+="<td>"+arrayBirds_2020[i].population+"</td>";
+                    str+="<td>"+arrayBirds_2021[i].population+"</td>";
+                    str+="<td>"+bird_change+"</td>";
                     str+="</tr>";
-                    document.getElementById("townTable").innerHTML+=str;
+                    document.getElementById("body_tableBirds").innerHTML+=str;
                 }
+              
+                    let table1 = document.getElementById("body_tableBirds");
+                    let rows = table1.querySelectorAll("tr");
+                    for ( let i = 0; i < arrayBirds_2020.length; i++) {
+                        let td1 = rows[i].children[4];
+                        let td1_num = parseInt(td1.innerHTML);
+                        if (td1_num < 0) td1.style.color = "red";
+                    }
+
+            
+                    //if (number(td[i][5]) < 0) td[i][5].style.color("red");
             }
             
         </script>
