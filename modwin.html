@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контактные данные</title>
+    <style type="text/css">
+        body {
+            background: linear-gradient(to top left, powderblue, pink)
+        }
+        
+        .popup-open {
+            display: inline-block;
+            padding: 15px 20px;
+            background: #000;
+            font-size: 16px;
+            text-decoration: none;
+            color: #fff;
+            position: absolute;
+            top: 44%;
+            left: 50%;
+            margin-left: -76px;
+        }
+        .popup-fade {
+            display: none;
+        }
+        .popup-fade:before {
+            content: '';
+            background: #000;
+            position: fixed; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%;
+            opacity: 0.7;
+            z-index: 9999;
+        }
+        .popup {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            padding: 20px;
+            width: 360px;
+            margin-left: -200px;	
+            background: #fff;
+            border: 1px solid orange;
+            border-radius: 4px; 
+            z-index: 99999;
+            opacity: 1;	
+        }
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <a class="popup-open" href="#">Спасибо!</a>
+    <div class="popup-fade">
+        <div class="popup">
+            <a class="popup-close" href="#">Закрыть</a>
+            <p>Благодарим за посещение нашего сайта!</p>
+        </div>		
+   
+        <div>
+            <h1>Информация о нас</h1>
+            <h3>Главный инструктор по сопровождения проекта - преподаватель - Петрухин И.Д.</h3>
+            <h3>Главный консультант-орнитолог - Панфилова И.М.</h3>
+            <h3>Автор проекта - Егорова И.И.</h3>
+        </div>  
+        <div>
+            <h4>Для связи</h4>
+        </div>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>  
+    <script src="modwin.js"></script> 
+</body>
+</html>
